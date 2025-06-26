@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Personal Page</title>
+    <!-- Tailwind CSS CDN for easy styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font for a clean look */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Keyframe animations for subtle entry effects */
+        @keyframes fade-in-down {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-down {
+            animation: fade-in-down 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+            animation-delay: 0.3s; /* Delay for a staggered effect */
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-400 to-purple-600 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl max-w-lg w-full text-center space-y-8">
+        <!-- Main Info Section -->
+        <div class="space-y-4">
+            <!-- Your Name -->
+            <h1 class="text-4xl font-extrabold text-gray-800 animate-fade-in-down">
+                [Your Name Here]
+            </h1>
+
+            <!-- A Place -->
+            <p class="text-xl text-gray-600 animate-fade-in-up">
+                📍 [Your Favorite Place Here]
+            </p>
+        </div>
+
+        <!-- Picture Section -->
+        <div class="border-t border-gray-200 pt-8 space-y-4">
+            <h2 class="text-2xl font-bold text-gray-700">Your Picture</h2>
+            <div class="flex flex-col items-center justify-center space-y-4">
+                <!-- Image Display Area -->
+                <img id="profilePicture" class="w-40 h-40 rounded-full object-cover shadow-lg border-4 border-blue-300"
+                     src="https://placehold.co/160x160/cccccc/333333?text=Your+Photo"
+                     onerror="this.src='https://placehold.co/160x160/cccccc/333333?text=Error'"
+                     alt="Profile Picture">
+
+                <!-- Simple "Upload" button and input for illustrative purposes.
+                     True file upload requires server-side processing. -->
+                <input type="file" id="imageUpload" accept="image/*" class="hidden">
+                <button onclick="document.getElementById('imageUpload').click()"
+                        class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+                    Upload Picture
+                </button>
+            </div>
+            <p class="text-sm text-gray-500 mt-2">
+                (Note: Actual image upload and persistence requires server-side code. This is for display.)
+            </p>
+        </div>
+
+        <!-- Contact Information Section -->
+        <div class="border-t border-gray-200 pt-8 space-y-4">
+            <h2 class="text-2xl font-bold text-gray-700">Contact Details</h2>
+            <div class="text-gray-600">
+                <p class="flex items-center justify-center mb-2">
+                    <span class="mr-2">📞</span> <a href="tel:[your email ]" class="text-blue-600 hover:underline">[03338452521]</a>
+                </p>
+                <p class="flex items-center justify-center mb-2">
+                    <span class="mr-2">📧</span> <a href="mailto:[Your Email]" class="text-blue-600 hover:underline">[tahirgoraya@gmmail.com]</a>
+                </p>
+                <p class="flex items-center justify-center">
+                    <span class="mr-2">🏠</span> [house number 123 askari 10]
+                </p>
+            </div>
+        </div>
+
+        <!-- Placeholder for a personal message or quote -->
+        <p class="text-md italic text-gray-500 border-t border-gray-200 pt-8">
+            "Simple pages can hold big dreams."
+        </p>
+    </div>
+
+    <script>
+        document.getElementById('imageUpload').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePicture').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
