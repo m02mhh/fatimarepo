@@ -1,0 +1,13 @@
+/*
+ * style.css
+ * This file contains custom CSS rules for your personal webpage.
+ * Most styling is handled by Tailwind CSS directly in index.html.
+ */
+
+/* Example: You could add custom fonts or animations here if not using Tailwind's defaults */
+body {
+    font-family: 'Inter', sans-serif; /* Using Inter, as per guidelines, or a fallback */
+}
+
+/* No additional custom CSS needed here as Tailwind handles most styling in the HTML. */
+/* The .profile-image styling for centering is embedded in the HTML's style tag for direct application. */
